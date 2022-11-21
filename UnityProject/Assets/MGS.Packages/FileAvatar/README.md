@@ -37,6 +37,10 @@ avatar.Commit(info);//Commit to cache.
 avatar.Push();//Write content to local file.
 ```
 
+## Source
+
+https://github.com/mogoson/MGS.FileAvatar
+
 ------
 
 Copyright © 2022 Mogoson.	mogoson@outlook.com
