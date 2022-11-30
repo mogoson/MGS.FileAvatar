@@ -10,6 +10,10 @@
 ## Platform
 - Windows.
 
+## Version
+
+- 0.1.0
+
 ## Demand
 - Read Json file to structure data, modify and write data to text file.
 - Read key value lines file to dictionary data, modify and write data to text file.
@@ -36,6 +40,10 @@ info.tittle = "Tittle";
 avatar.Commit(info);//Commit to cache.
 avatar.Push();//Write content to local file.
 ```
+
+## Demo
+
+- Demos in the path "MGS.Packages/FileAvatar/Demo/" provide reference to you.
 
 ## Source
 
