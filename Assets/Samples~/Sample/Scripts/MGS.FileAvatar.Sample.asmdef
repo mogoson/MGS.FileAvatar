@@ -1,0 +1,16 @@
+{
+    "name": "MGS.FileAvatar.Sample",
+    "rootNamespace": "",
+    "references": [
+        "GUID:57a48f35bf4eb714dae34802e3d88e73"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,25 @@
+{
+    "name": "com.mgs.fileavatar",
+    "version": "1.0.0",
+    "displayName": "File Avatar",
+    "description": "Avatar for text file to read and write data.",
+    "unity": "2021.3",
+    "keywords": [
+        "file",
+        "avatar",
+        "json",
+        "text"
+    ],
+    "author": {
+        "name": "Mogoson",
+        "email": "mogoson@outlook.com",
+        "url": "https://github.com/mogoson"
+    },
+    "samples": [
+        {
+            "displayName": "Sample",
+            "description": "Sample for avatar read and write",
+            "path": "Samples~/Sample"
+        }
+    ]
+}
