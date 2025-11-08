@@ -17,13 +17,8 @@ namespace MGS.FileAvatar
     /// <summary>
     /// Avatar of json file to read and write data.
     /// </summary>
-    public class JsonFileAvatar<T> : FileAvatar
+    public class JsonFileAvatar<T> : TextFileAvatar<T>
     {
-        /// <summary>
-        /// Content of json file.
-        /// </summary>
-        public new T Content { protected set; get; }
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -31,43 +26,23 @@ namespace MGS.FileAvatar
         public JsonFileAvatar(string path) : base(path) { }
 
         /// <summary>
-        /// Commit to the content cache.
+        /// Data struct from text.
         /// </summary>
-        /// <param name="content">New content to refresh.</param>
-        public void Commit(T content)
-        {
-            Content = content;
-            Dirty = true;
-        }
-
-        /// <summary>
-        /// Refresh content cache.
-        /// </summary>
-        /// <param name="content"></param>
-        protected override void RefreshContentCache(string content)
-        {
-            base.RefreshContentCache(content);
-            if (string.IsNullOrEmpty(content))
-            {
-                Content = default(T);
-            }
-            else
-            {
-                Content = JsonConvert.DeserializeObject<T>(content);
-            }
-        }
-
-        /// <summary>
-        /// Collect content cache.
-        /// </summary>
+        /// <param name="text"></param>
         /// <returns></returns>
-        protected override string CollectContentCache()
+        protected override T DataFromText(string text)
         {
-            if (Content == null)
-            {
-                return null;
-            }
-            return JsonConvert.SerializeObject(Content);
+            return JsonConvert.DeserializeObject<T>(text);
+        }
+
+        /// <summary>
+        /// Text from data struct.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        protected override string TextFromData(T data)
+        {
+            return JsonConvert.SerializeObject(data);
         }
     }
 }

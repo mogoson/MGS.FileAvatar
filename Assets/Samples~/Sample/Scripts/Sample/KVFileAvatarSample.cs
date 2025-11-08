@@ -1,7 +1,7 @@
 /*************************************************************************
  *  Copyright © 2022 Mogoson. All rights reserved.
  *------------------------------------------------------------------------
- *  File         :  TestJsonFileAvatar.cs
+ *  File         :  KVFileAvatarSample.cs
  *  Description  :  Null.
  *------------------------------------------------------------------------
  *  Author       :  Mogoson
@@ -15,27 +15,24 @@ using UnityEngine;
 
 namespace MGS.FileAvatar.Sample
 {
-    public class TestJsonFileAvatar : MonoBehaviour
+    public class KVFileAvatarSample : FileAvatarSample
     {
         void Start()
         {
-            var file = $"{Application.dataPath}/Assets/Samples/File Avatar/1.0.0/Files/JsonFile.json";
-            var avatar = new JsonFileAvatar<TestInfo>(file);
+            var file = $"{FileDir}/KVFile.txt";
+            var avatar = new KVFileAvatar<FileDataSample>(file);
 
-            var info = avatar.Content;
-            Debug.Log($"tittle is {info.tittle}");
+            var data = avatar.Data;
+            Debug.Log(data.tittle);
+            Debug.Log(data.content);
 
-            info.tittle = $"Tittle {DateTime.Now}";
-            avatar.Commit(info);
+            data.content = $"Sample content {DateTime.Now}";
+            Debug.Log(data.content);
+
+            avatar.Commit(data);
             avatar.Push();
 
-            Debug.Log($"Save to file at path {file}");
+            Debug.Log($"Save data to file at path {file}");
         }
-    }
-
-    public class TestInfo
-    {
-        public string tittle;
-        public string content;
     }
 }

@@ -15,7 +15,7 @@ namespace MGS.FileAvatar
     /// <summary>
     /// Interface for avatar of file to read and write data.
     /// </summary>
-    public interface IFileAvatar
+    public interface IFileAvatar<T>
     {
         /// <summary>
         /// Path of file.
@@ -23,29 +23,29 @@ namespace MGS.FileAvatar
         string Path { get; }
 
         /// <summary>
-        /// Content cache of file.
+        /// Data cache.
         /// </summary>
-        string Content { get; }
+        T Data { get; }
 
         /// <summary>
-        /// The data is dirty?
+        /// Data cache is dirty?
         /// </summary>
         bool Dirty { get; }
 
         /// <summary>
-        /// Pull content from file and refresh cache.
+        /// Pull Data from file and refresh cache.
         /// </summary>
-        /// <returns>Content of file.</returns>
-        string Pull();
+        /// <returns>Data of file.</returns>
+        T Pull();
 
         /// <summary>
-        /// Commit to the content cache.
+        /// Commit data to cache.
         /// </summary>
-        /// <param name="content">New content to refresh.</param>
-        void Commit(string content);
+        /// <param name="data"></param>
+        void Commit(T data);
 
         /// <summary>
-        /// Push the content cache to text file.
+        /// Push data cache to file.
         /// </summary>
         void Push();
     }
