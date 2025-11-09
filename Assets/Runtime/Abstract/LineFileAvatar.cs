@@ -1,3 +1,15 @@
+﻿/*************************************************************************
+ *  Copyright © 2025 Mogoson. All rights reserved.
+ *------------------------------------------------------------------------
+ *  File         :  LineFileAvatar.cs
+ *  Description  :  Null.
+ *------------------------------------------------------------------------
+ *  Author       :  Mogoson
+ *  Version      :  1.0.0
+ *  Date         :  11/08/2025
+ *  Description  :  Initial development version.
+ *************************************************************************/
+
 using System;
 using System.Collections.Generic;
 using System.IO;
