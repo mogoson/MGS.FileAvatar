@@ -8,6 +8,7 @@
 ## Ability
 - Read Json file to structure data, modify and write data to text file.
 - Read key value lines file to dictionary data, modify and write data to text file.
+- Read CSV lines file to dictionary data, modify and write data to text file.
 
 ## Install
 

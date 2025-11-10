@@ -20,14 +20,14 @@ namespace MGS.FileAvatar.Sample
         void Start()
         {
             var file = $"{FileDir}/CSVFile.csv";
-            var avatar = new CSVFileAvatar<FileDataSample>(file);
+            var avatar = new CSVFileAvatar(file);
 
             var data = avatar.Data[0];
-            Debug.Log(data.tittle);
-            Debug.Log(data.content);
+            Debug.Log(data[0]);
+            Debug.Log(data[1]);
 
-            data.content = $"Sample content {DateTime.Now}";
-            Debug.Log(data.content);
+            data[1] = $"Sample content {DateTime.Now}";
+            Debug.Log(data[1]);
 
             avatar.Commit(avatar.Data);
             avatar.Push();

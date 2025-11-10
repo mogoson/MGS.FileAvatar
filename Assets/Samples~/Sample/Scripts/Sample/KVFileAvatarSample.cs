@@ -20,14 +20,14 @@ namespace MGS.FileAvatar.Sample
         void Start()
         {
             var file = $"{FileDir}/KVFile.txt";
-            var avatar = new KVFileAvatar<FileDataSample>(file);
+            var avatar = new KVFileAvatar(file);
 
             var data = avatar.Data;
-            Debug.Log(data.tittle);
-            Debug.Log(data.content);
+            Debug.Log(data["tittle"]);
+            Debug.Log(data["content"]);
 
-            data.content = $"Sample content {DateTime.Now}";
-            Debug.Log(data.content);
+            data["content"] = $"Sample content {DateTime.Now}";
+            Debug.Log(data["content"]);
 
             avatar.Commit(data);
             avatar.Push();

@@ -18,7 +18,7 @@ namespace MGS.FileAvatar
     /// <summary>
     /// Avatar of csv lines file to read and write data.
     /// </summary>
-    public class CSVFileAvatar<T> : LineFileAvatar<List<T>>
+    public class CSVFileAvatar : LineFileAvatar<List<List<string>>>
     {
         /// <summary>
         /// Separator of csv line.
@@ -36,22 +36,13 @@ namespace MGS.FileAvatar
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        protected override List<T> DataFromLines(IEnumerable<string> lines)
+        protected override List<List<string>> DataFromLines(IEnumerable<string> lines)
         {
-            var datas = new List<T>();
+            var datas = new List<List<string>>();
             foreach (var line in lines)
             {
                 var fieldValues = line.Split(SEPARATOR_CSV);
-                var fields = typeof(T).GetFields();
-                var data = Activator.CreateInstance<T>();
-                for (int i = 0; i < fieldValues.Length; i++)
-                {
-                    if (i >= fields.Length)
-                    {
-                        break;
-                    }
-                    fields[i].SetValue(data, fieldValues[i]);
-                }
+                var data = new List<string>(fieldValues);
                 datas.Add(data);
             }
             return datas;
@@ -62,18 +53,12 @@ namespace MGS.FileAvatar
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        protected override IEnumerable<string> LinesFromData(List<T> datas)
+        protected override IEnumerable<string> LinesFromData(List<List<string>> data)
         {
             var lines = new List<string>();
-            foreach (var data in datas)
+            foreach (var row in data)
             {
-                var fields = typeof(T).GetFields();
-                var fieldValues = new List<string>();
-                foreach (var field in fields)
-                {
-                    fieldValues.Add($"{field.GetValue(data)}");
-                }
-                var line = string.Join(SEPARATOR_CSV, fieldValues);
+                var line = string.Join(SEPARATOR_CSV, row);
                 lines.Add(line);
             }
             return lines;
